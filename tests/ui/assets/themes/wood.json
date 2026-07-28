@@ -1,0 +1,10 @@
+{
+  "name": "چوبی",
+  "colors": {
+    "light": "#DEB887",
+    "dark": "#8B6914",
+    "highlight": "#FFD700",
+    "selected": "#CD5C5C"
+  },
+  "description": "تم چوب طبیعی"
+}

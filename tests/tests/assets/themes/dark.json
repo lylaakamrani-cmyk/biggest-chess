@@ -1,0 +1,10 @@
+{
+  "name": "تاریک",
+  "colors": {
+    "light": "#779952",
+    "dark": "#446633",
+    "highlight": "#FFCC00",
+    "selected": "#FF4444"
+  },
+  "description": "تم تاریک برای شب"
+}

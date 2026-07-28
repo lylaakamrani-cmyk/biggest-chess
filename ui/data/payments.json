@@ -1,0 +1,13 @@
+{
+  "user_001": {
+    "coins": 10230,
+    "subscription": null,
+    "purchases": [],
+    "premium": false,
+    "total_spent_rial": 0,
+    "total_spent_toman": 0,
+    "daily_claim": "2026-07-23",
+    "ad_watch_count": 2,
+    "last_ad_watch": "2026-07-23"
+  }
+}

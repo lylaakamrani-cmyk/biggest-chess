@@ -1,0 +1,23 @@
+{
+    "user_001": {
+        "coins": 1250,
+        "subscription": {
+            "plan": "monthly",
+            "start": 1700000000,
+            "expires": 1702592000
+        },
+        "purchases": [
+            {
+                "id": "pay_12345",
+                "package": "coins_1000",
+                "coins": 1000,
+                "price": 70000,
+                "time": 1700000000,
+                "ref_id": "ZP-12345678",
+                "status": "completed"
+            }
+        ],
+        "premium": True,
+        "total_spent": 70000
+    }
+}

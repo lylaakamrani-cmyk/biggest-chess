@@ -1,0 +1,13 @@
+{
+  "app_name": "Chess Master Pro",
+  "version": "1.2.0",
+  "default_theme": "classic",
+  "default_time": 600,
+  "sound_enabled": true,
+  "animations_enabled": true,
+  "language": "english",
+  "elo_start": 1200,
+  "stockfish_path": "stockfish",
+  "server_url": "wss://chess-master-server.com",
+  "database_path": "chess_master.db"
+}

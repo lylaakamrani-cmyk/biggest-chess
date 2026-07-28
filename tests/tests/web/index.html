@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♟️ Chess Master Pro - Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♟️</text></svg>">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <span class="icon">♟️</span>
+                <h1>Chess Master Pro</h1>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-page="home">🏠 خانه</button>
+                <button class="nav-btn" data-page="play">🎮 بازی</button>
+                <button class="nav-btn" data-page="profile">👤 پروفایل</button>
+                <button class="nav-btn" data-page="shop">🛒 فروشگاه</button>
+                <button class="nav-btn" data-page="settings">⚙️ تنظیمات</button>
+                <button class="nav-btn" data-page="online">🌐 آنلاین</button>
+            </nav>
+            <div id="user-status">
+                <span id="username-display">مهمان</span>
+                <button id="login-btn" class="btn-primary">ورود</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- صفحه خانه -->
+            <section id="page-home" class="page active">
+                <div class="hero">
+                    <h2>به Chess Master Pro خوش آمدید! 🎯</h2>
+                    <p>بازی شطرنج حرفه‌ای با هوش مصنوعی و بازیکنان آنلاین</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="navigateTo('play')">🎮 شروع بازی</button>
+                        <button class="btn-secondary" onclick="navigateTo('online')">🌐 بازی آنلاین</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">👥</span>
+                        <span class="stat-value" id="online-players">0</span>
+                        <span class="stat-label">بازیکنان آنلاین</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🎯</span>
+                        <span class="stat-value" id="active-games">0</span>
+                        <span class="stat-label">بازی‌های فعال</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🏆</span>
+                        <span class="stat-value" id="total-games">0</span>
+                        <span class="stat-label">کل بازی‌ها</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- صفحه بازی -->
+            <section id="page-play" class="page">
+                <div class="game-container">
+                    <div class="board-container">
+                        <div id="board"></div>
+                        <div class="game-controls">
+                            <button class="btn-control" onclick="undoMove()">↩️ برگشت</button>
+                            <button class="btn-control" onclick="redoMove()">↪️ جلو</button>
+                            <button class="btn-control" onclick="resetGame()">🔄 جدید</button>
+                            <button class="btn-control" onclick="toggleFlip()">🔄 چرخش</button>
+                        </div>
+                    </div>
+                    <div class="game-sidebar">
+                        <div class="player-info" id="white-player">
+                            <span class="player-color">⚪ سفید</span>
+                            <span class="player-name" id="white-name">شما</span>
+                            <span class="player-time" id="white-time">10:00</span>
+                        </div>
+                        <div class="move-history" id="move-history">
+                            <h4>تاریخچه حرکات</h4>
+                            <div id="moves-list"></div>
+                        </div>
+                        <div class="player-info" id="black-player">
+                            <span class="player-color">⚫ سیاه</span>
+                            <span class="player-name" id="black-name">AI</span>
+                            <span class="player-time" id="black-time">10:00</span>
+                        </div>
+                        <div class="game-status" id="game-status">
+                            <span>⏳ در حال بازی...</span>
+                        </div>
+                        <div class="game-actions">
+                            <button class="btn-action" onclick="offerDraw()">🤝 مساوی</button>
+                            <button class="btn-action btn-danger" onclick="resignGame()">🏳️ تسلیم</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- صفحه پروفایل -->
+            <section id="page-profile" class="page">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="avatar" id="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <h2 id="profile-username">مهمان</h2>
+                            <span class="rating" id="profile-rating">⭐ 1200</span>
+                            <span class="rank" id="profile-rank">🥉 مبتدی</span>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="profile-games">0</span>
+                            <span class="stat-label">بازی‌ها</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="profile-wins">0</span>
+                            <span class="stat-label">برد</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="profile-losses">0</span>
+                            <span class="stat-label">باخت</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="profile-draws">0</span>
+                            <span class="stat-label">مساوی</span>
+                        </div>
+                    </div>
+                    <div class="profile-achievements">
+                        <h3>🏅 دستاوردها</h3>
+                        <div id="achievements-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- صفحه فروشگاه -->
+            <section id="page-shop" class="page">
+                <div class="shop-container">
+                    <h2>🛒 فروشگاه</h2>
+                    <div class="shop-filters">
+                        <button class="filter-btn active" data-category="all">همه</button>
+                        <button class="filter-btn" data-category="theme">تم‌ها</button>
+                        <button class="filter-btn" data-category="piece">مهره‌ها</button>
+                        <button class="filter-btn" data-category="sound">صداها</button>
+                    </div>
+                    <div class="shop-items" id="shop-items">
+                        <!-- آیتم‌ها توسط JS ساخته می‌شوند -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- صفحه تنظیمات -->
+            <section id="page-settings" class="page">
+                <div class="settings-container">
+                    <h2>⚙️ تنظیمات</h2>
+                    <div class="settings-group">
+                        <h3>🎨 ظاهر</h3>
+                        <div class="setting-item">
+                            <label>تم صفحه</label>
+                            <select id="board-theme">
+                                <option value="classic">کلاسیک</option>
+                                <option value="dark">تاریک</option>
+                                <option value="neon">نئون</option>
+                                <option value="blue">آبی</option>
+                                <option value="green">سبز</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>تم مهره‌ها</label>
+                            <select id="piece-theme">
+                                <option value="classic">کلاسیک</option>
+                                <option value="modern">مدرن</option>
+                                <option value="wood">چوبی</option>
+                                <option value="gold">طلایی</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>حالت تاریک</label>
+                            <input type="checkbox" id="dark-mode">
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>🔊 صدا</h3>
+                        <div class="setting-item">
+                            <label>فعال بودن صدا</label>
+                            <input type="checkbox" id="sound-enabled" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>بلندی صدا</label>
+                            <input type="range" id="sound-volume" min="0" max="100" value="70">
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>🎮 بازی</h3>
+                        <div class="setting-item">
+                            <label>سطح AI</label>
+                            <select id="ai-level">
+                                <option value="beginner">مبتدی</option>
+                                <option value="easy">آسان</option>
+                                <option value="medium" selected>متوسط</option>
+                                <option value="hard">سخت</option>
+                                <option value="expert">حرفه‌ای</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>زمان بازی</label>
+                            <select id="time-control">
+                                <option value="1+0">۱ دقیقه</option>
+                                <option value="3+0">۳ دقیقه</option>
+                                <option value="5+0">۵ دقیقه</option>
+                                <option value="10+0" selected>۱۰ دقیقه</option>
+                                <option value="15+10">۱۵+۱۰</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="saveSettings()">💾 ذخیره تنظیمات</button>
+                </div>
+            </section>
+
+            <!-- صفحه آنلاین -->
+            <section id="page-online" class="page">
+                <div class="online-container">
+                    <h2>🌐 بازی آنلاین</h2>
+                    <div class="online-status">
+                        <span id="connection-status">📡 در حال اتصال...</span>
+                    </div>
+                    <div class="online-actions">
+                        <button class="btn-primary" onclick="connectOnline()">🔗 اتصال</button>
+                        <button class="btn-primary" onclick="createGame()">➕ ایجاد بازی</button>
+                    </div>
+                    <div class="online-games">
+                        <h3>🎮 بازی‌های فعال</h3>
+                        <div id="online-games-list"></div>
+                    </div>
+                    <div class="online-players">
+                        <h3>👥 بازیکنان آنلاین</h3>
+                        <div id="online-players-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>♟️ Chess Master Pro v1.0 | © 2024</p>
+        </footer>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>🔐 ورود</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="نام کاربری" required>
+                <input type="password" id="login-password" placeholder="رمز عبور" required>
+                <button type="submit" class="btn-primary">ورود</button>
+            </form>
+            <p>حساب ندارید؟ <a href="#" onclick="showRegister()">ثبت نام</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegister()">&times;</span>
+            <h2>📝 ثبت نام</h2>
+            <form id="register-form">
+                <input type="text" id="register-username" placeholder="نام کاربری" required>
+                <input type="email" id="register-email" placeholder="ایمیل" required>
+                <input type="password" id="register-password" placeholder="رمز عبور" required>
+                <button type="submit" class="btn-primary">ثبت نام</button>
+            </form>
+            <p>حساب دارید؟ <a href="#" onclick="showLogin()">ورود</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

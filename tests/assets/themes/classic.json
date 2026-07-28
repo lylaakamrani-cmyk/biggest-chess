@@ -1,0 +1,10 @@
+{
+  "name": "کلاسیک",
+  "colors": {
+    "light": "#F0D9B5",
+    "dark": "#B58863",
+    "highlight": "#FFFF00",
+    "selected": "#7B61FF"
+  },
+  "description": "تم کلاسیک شطرنج"
+}

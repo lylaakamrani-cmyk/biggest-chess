@@ -1,0 +1,72 @@
+# © 2025 AmirAli Kamrani. All rights reserved.
+
+# ui/kv/board.kv
+<BoardScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(8)
+        spacing: dp(4)
+        
+        BoxLayout:
+            size_hint_y: 0.06
+            
+            Button:
+                text: '< Back'
+                font_size: dp(18)
+                size_hint_x: 0.18
+                background_normal: ''
+                background_color: (0.2, 0.2, 0.35, 1)
+                on_release: app.root.current = 'home'
+                
+            Label:
+                text: '♟ Chess Board'
+                font_size: dp(22)
+                color: (1, 1, 1, 1)
+                bold: True
+                
+        GridLayout:
+            id: board_grid
+            cols: 8
+            rows: 8
+            size_hint: (1, 0.62)
+            
+        BoxLayout:
+            size_hint_y: 0.05
+            spacing: dp(10)
+            
+            Label:
+                id: status_label
+                text: 'Turn: White'
+                font_size: dp(15)
+                color: (0.7, 0.7, 0.7, 1)
+                
+            Label:
+                id: move_count_label
+                text: 'Moves: 0'
+                font_size: dp(15)
+                color: (0.7, 0.7, 0.7, 1)
+                
+        BoxLayout:
+            size_hint_y: 0.07
+            spacing: dp(6)
+            
+            Button:
+                text: '↩ Undo'
+                font_size: dp(14)
+                background_normal: ''
+                background_color: (0.2, 0.2, 0.35, 1)
+                on_release: root.do_undo()
+                
+            Button:
+                text: '🔄 Reset'
+                font_size: dp(14)
+                background_normal: ''
+                background_color: (0.2, 0.2, 0.35, 1)
+                on_release: root.do_reset()
+                
+            Button:
+                text: '🔃 Flip'
+                font_size: dp(14)
+                background_normal: ''
+                background_color: (0.2, 0.2, 0.35, 1)
+                on_release: root.do_flip()

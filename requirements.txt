@@ -1,0 +1,7 @@
+# © 2025 AmirAli Kamrani. All rights reserved.
+kivy==2.1.0
+python-chess==1.9.4
+websockets==10.4
+requests==2.28.2
+Pillow==9.4.0
+pygame==2.3.0

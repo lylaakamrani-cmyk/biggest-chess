@@ -1,0 +1,141 @@
+# © 2025 AmirAli Kamrani. All rights reserved.
+
+# ui/kv/settings.kv
+<SettingsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(15)
+        spacing: dp(8)
+        
+        BoxLayout:
+            size_hint_y: 0.06
+            
+            Button:
+                text: '< Back'
+                font_size: dp(18)
+                size_hint_x: 0.2
+                background_normal: ''
+                background_color: (0.2, 0.2, 0.35, 1)
+                on_release: app.root.current = 'home'
+                
+            Label:
+                text: '⚙️ Settings'
+                font_size: dp(24)
+                color: (1, 1, 1, 1)
+                bold: True
+                
+        Widget:
+            size_hint_y: 0.02
+            
+        ScrollView:
+            size_hint_y: 0.78
+            
+            GridLayout:
+                cols: 1
+                spacing: dp(5)
+                size_hint_y: None
+                height: self.minimum_height
+                
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    
+                    Label:
+                        text: 'Board Theme'
+                        font_size: dp(15)
+                        color: (0.8, 0.8, 0.8, 1)
+                        size_hint_x: 0.5
+                        
+                    Label:
+                        text: 'Classic'
+                        font_size: dp(15)
+                        color: (1, 1, 0.6, 1)
+                        size_hint_x: 0.5
+                        
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    
+                    Label:
+                        text: 'Piece Theme'
+                        font_size: dp(15)
+                        color: (0.8, 0.8, 0.8, 1)
+                        size_hint_x: 0.5
+                        
+                    Label:
+                        text: 'Classic'
+                        font_size: dp(15)
+                        color: (1, 1, 0.6, 1)
+                        size_hint_x: 0.5
+                        
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    
+                    Label:
+                        text: 'Sound'
+                        font_size: dp(15)
+                        color: (0.8, 0.8, 0.8, 1)
+                        size_hint_x: 0.5
+                        
+                    Label:
+                        text: 'On'
+                        font_size: dp(15)
+                        color: (1, 1, 0.6, 1)
+                        size_hint_x: 0.5
+                        
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    
+                    Label:
+                        text: 'Volume'
+                        font_size: dp(15)
+                        color: (0.8, 0.8, 0.8, 1)
+                        size_hint_x: 0.5
+                        
+                    Label:
+                        text: '70%'
+                        font_size: dp(15)
+                        color: (1, 1, 0.6, 1)
+                        size_hint_x: 0.5
+                        
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    
+                    Label:
+                        text: 'AI Level'
+                        font_size: dp(15)
+                        color: (0.8, 0.8, 0.8, 1)
+                        size_hint_x: 0.5
+                        
+                    Label:
+                        text: 'Medium'
+                        font_size: dp(15)
+                        color: (1, 1, 0.6, 1)
+                        size_hint_x: 0.5
+                        
+                BoxLayout:
+                    size_hint_y: None
+                    height: dp(40)
+                    
+                    Label:
+                        text: 'Time Control'
+                        font_size: dp(15)
+                        color: (0.8, 0.8, 0.8, 1)
+                        size_hint_x: 0.5
+                        
+                    Label:
+                        text: '10+0'
+                        font_size: dp(15)
+                        color: (1, 1, 0.6, 1)
+                        size_hint_x: 0.5
+                    
+        Button:
+            text: '💾 Save Settings'
+            font_size: dp(18)
+            size_hint_y: 0.07
+            background_normal: ''
+            background_color: (0.97, 0.59, 0.12, 1)
+            on_release: root.save_settings()

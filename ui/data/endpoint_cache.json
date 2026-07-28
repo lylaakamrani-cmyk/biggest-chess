@@ -1,0 +1,87 @@
+{
+  "shop_items": {
+    "data": [
+      {
+        "id": "theme_classic",
+        "name": "Classic Theme",
+        "price": 0,
+        "rarity": "common",
+        "icon": "🎨",
+        "category": "theme"
+      },
+      {
+        "id": "theme_dark",
+        "name": "Dark Theme",
+        "price": 150,
+        "rarity": "common",
+        "icon": "🌙",
+        "category": "theme"
+      },
+      {
+        "id": "theme_neon",
+        "name": "Neon Theme",
+        "price": 300,
+        "rarity": "rare",
+        "icon": "💡",
+        "category": "theme"
+      },
+      {
+        "id": "theme_blue",
+        "name": "Blue Theme",
+        "price": 200,
+        "rarity": "uncommon",
+        "icon": "🔵",
+        "category": "theme"
+      },
+      {
+        "id": "piece_classic",
+        "name": "Classic Pieces",
+        "price": 0,
+        "rarity": "common",
+        "icon": "♟️",
+        "category": "piece"
+      },
+      {
+        "id": "piece_modern",
+        "name": "Modern Pieces",
+        "price": 200,
+        "rarity": "uncommon",
+        "icon": "♞",
+        "category": "piece"
+      },
+      {
+        "id": "piece_gold",
+        "name": "Gold Pieces",
+        "price": 600,
+        "rarity": "legendary",
+        "icon": "👑",
+        "category": "piece"
+      },
+      {
+        "id": "sound_epic",
+        "name": "Epic Sounds",
+        "price": 300,
+        "rarity": "rare",
+        "icon": "🎼",
+        "category": "sound"
+      },
+      {
+        "id": "bg_stars",
+        "name": "Star BG",
+        "price": 250,
+        "rarity": "rare",
+        "icon": "⭐",
+        "category": "bg"
+      },
+      {
+        "id": "premium_stats",
+        "name": "Premium Stats",
+        "price": 300,
+        "rarity": "rare",
+        "icon": "📊",
+        "category": "special"
+      }
+    ],
+    "time": 1784780742.7398856
+  }
+}

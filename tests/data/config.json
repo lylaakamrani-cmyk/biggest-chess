@@ -1,0 +1,32 @@
+{
+  "app": {
+    "name": "Chess Master Pro",
+    "version": "1.0.0",
+    "language": "en",
+    "dark_mode": false
+  },
+  "game": {
+    "time_control": "10+0",
+    "initial_time": 600,
+    "increment": 0,
+    "rated": true
+  },
+  "board": {
+    "theme": "classic",
+    "piece_theme": "classic",
+    "show_legal_moves": true,
+    "highlight_last_move": true,
+    "animation_speed": 300
+  },
+  "sound": {
+    "enabled": true,
+    "volume": 70
+  },
+  "ai": {
+    "difficulty": "medium",
+    "depth": 4
+  },
+  "network": {
+    "server_url": "ws://localhost:8765"
+  }
+}
