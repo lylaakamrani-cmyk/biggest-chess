@@ -4,7 +4,7 @@
 © 2025 AmirAli Kamrani. All rights reserved.
 
 
-# Chess Master Pro
+# ♟️ Chess Master Pro
 
 یک بازی شطرنج کامل و حرفه‌ای با پایتون و کتابخانه‌های python-chess و kivy
 
@@ -126,7 +126,17 @@ Biggest_chess/
 برای ارتباط با ما، از طریق ایمیل chessmasterpro@email.com تماس بگیرید.
 
 
----
 
-**Developed by AmirAli Kamrani**  
-© 2025 AmirAli Kamrani. All rights reserved.
+## 🎯 فرصت سرمایه‌گذاری
+
+Chess Master Pro آماده‌ی خرید، سرمایه‌گذاری یا مشارکت است.
+
+**ارزش تجاری: ۱ تا ۳ میلیارد تومان**
+(بسته به ساختار معامله)
+
+✅ دموی زنده آماده است
+✅ درگاه پرداخت فعال است
+✅ پشتیبانی ۲ ساله ارائه می‌شود
+✅ بیش از ۴۰ ویژگی حرفه‌ای
+
+📞 برای همکاری: installchessmaster@gmail.com | 09933140639
